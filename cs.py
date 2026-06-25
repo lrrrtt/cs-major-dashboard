@@ -104,9 +104,9 @@ with m4:
     if not filtered_df.empty:
         top_winner = filtered_df["Winner"].value_counts().idxmax()
         win_count = filtered_df["Winner"].value_counts().max()
-        st.metric("筛选期内最强霸主", f"{top_winner} ({win_count}冠)")
+        st.metric("筛选期内最强战队", f"{top_winner} ({win_count}冠)")
     else:
-        st.metric("筛选期内最强霸主", "N/A")
+        st.metric("筛选期内最强战队", "N/A")
 
 st.divider()
 
@@ -198,7 +198,7 @@ st.divider()
 col3, col4 = st.columns(2)
 
 with col3:
-    st.subheader("👑 模块三：诸神殿 (战队夺冠次数)")
+    st.subheader("👑 模块三：王朝战队 (战队夺冠次数)")
     st.caption("统计各大战队捧起 Major 奖杯的总次数")
     if not filtered_df.empty:
         winner_counts = filtered_df["Winner"].value_counts().reset_index()
@@ -223,7 +223,7 @@ with col3:
         st.warning("⚠️ 暂无战队夺冠统计数据。")
 
 with col4:
-    st.subheader("🔥 模块四：历届 Major 终极评分榜")
+    st.subheader("🔥 模块四：历届 Major 评分榜")
     st.caption("基于赛事热度与社区评价计算的综合排行榜")
     if not filtered_df.empty:
         display_df = filtered_df.sort_values(by="Iconic_Score", ascending=False)[
